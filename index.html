@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<title>Ifetayo's Portfolio</title>
+<link rel="icon" type="image/x-icon" href="/Users/ifespencer/Desktop/port.icons/awardz.png">
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg-dark:#0b0220;
+    --bg-light:#fff6fb;
+    --hot-pink:#ff2fa6;
+    --magenta:#ff0080;
+    --lav:#d6b3e6;
+    --panel-dark: rgba(255,255,255,0.03);
+    --panel-light: rgba(0,0,0,0.04);
+    --text-light: #f9f6ff;
+    --text-dark:#1b1120;
+    --card-border: rgba(255,255,255,0.06);
+    --pixel:"Press Start 2P", monospace;
+    --mono: "VT323", monospace;
+    --ease: cubic-bezier(.2,.9,.2,1);
+  }
+
+  html[data-theme="dark"]{ --bg:var(--bg-dark); --panel:var(--panel-dark); --text:var(--text-light); --cardBorder:var(--card-border); }
+  html[data-theme="light"]{ --bg:var(--bg-light); --panel:var(--panel-light); --text:var(--text-dark); --cardBorder:rgba(0,0,0,0.06); }
+
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto; background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; min-height:100vh; overflow-x:hidden;}
+
+  /* Header */
+  header{
+    position:fixed; left:0; right:0; top:0; display:flex; align-items:center; justify-content:space-between;
+    padding:12px 20px; z-index:1000; transition: all 360ms var(--ease);
+    background: linear-gradient(180deg, rgba(0,0,0,0.06), transparent);
+    backdrop-filter: blur(6px);
+    border-bottom:1px solid var(--cardBorder);
+  }
+
+  header.scrolled{ transform: translateY(-18px); opacity:0; pointer-events:none; }
+
+  .brand{ display:flex; align-items:center; gap:12px; }
+  .logo-glitter{
+    font-family:var(--pixel); font-size:13px; color:var(--hot-pink);
+    text-shadow: 0 4px 12px rgba(255,0,150,0.12), 0 0 12px rgba(255,100,180,0.08);
+    letter-spacing:1px;
+    padding:8px 12px; border-radius:8px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
+    border:1px solid var(--cardBorder);
+  }
+  /* Top-right text nav */
+  nav.topnav{ display:flex; gap:14px; align-items:center; font-weight:700; font-family:var(--pixel); }
+  nav.topnav a{
+    text-decoration:none; color:var(--text); font-size:12px; opacity:0.95; padding:6px 8px; border-radius:6px;
+    transition: all 180ms var(--ease);
+  }
+  nav.topnav a:hover{ transform:translateY(-4px); color:var(--hot-pink); text-shadow: 0 6px 20px rgba(255,0,150,0.12); }
+
+  /* theme toggle */
+  .theme-toggle{ display:flex; align-items:center; gap:8px; padding-left:8px; }
+
+  /* Main app area */
+  main{ padding-top:76px; min-height:100vh; }
+
+  .screen{
+    width:100vw; min-height:calc(100vh - 76px); padding:36px 18px; display:none; opacity:0; transform: translateY(12px); transition: all 420ms var(--ease);
+  }
+  .screen.active{ display:block; opacity:1; transform: translateY(0); }
+
+  .container{ max-width:1100px; margin:0 auto; display:flex; gap:20px; align-items:flex-start; }
+
+  /* Home  */
+  .home-left{ width:320px; flex:0 0 320px; }
+  .profile-photo{ width:100%; height:320px; border-radius:12px; object-fit:cover; display:block; image-rendering: pixelated; border:4px solid rgba(255,255,255,0.04); }
+  .home-right{ flex:1; display:flex; flex-direction:column; gap:12px; }
+  h1{ font-family:var(--pixel); font-size:22px; margin:0; color:var(--hot-pink); }
+  .bio{ font-size:15px; color:var(--text); line-height:1.45; }
+
+  .socials{ display:flex; gap:10px; margin-top:8px; flex-wrap:wrap; }
+  .pill{ padding:8px 12px; border-radius:10px; background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02)); border:1px solid var(--cardBorder); font-weight:700; text-decoration:none; color:var(--hot-pink); font-family:var(--pixel); }
+
+  .resume-link{ display:inline-block; margin-top:10px; text-decoration:none; font-weight:700; padding:8px 12px; border-radius:8px; background:linear-gradient(90deg,var(--hot-pink),#ff65b3); color:white; }
+
+  /* Skills area (below home on smaller screens) */
+  .skills{ display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+  .skill{ background:rgba(255,255,255,0.03); padding:6px 8px; border-radius:8px; font-weight:700; font-size:12px; border:1px solid var(--cardBorder); color:var(--text); }
+
+  /* Education */
+  .edu-grid{ display:grid; grid-template-columns: 1fr 380px; gap:18px; align-items:start; }
+  .edu-card{ padding:16px; border-radius:12px; background:var(--panel); border:1px solid var(--cardBorder); }
+  .carousel{ position:relative; overflow:hidden; border-radius:10px; border:1px solid var(--cardBorder); }
+  .carousel-inner{ display:flex; transition:transform .4s var(--ease); }
+  .carousel img{ width:100%; height:220px; object-fit:cover; image-rendering: pixelated; }
+
+  .carousel-controls{ display:flex; gap:8px; margin-top:8px; justify-content:flex-end; }
+
+  /* Experience: horizontal cards stacked */
+  .exp-list{ display:flex; gap:12px; overflow:auto; padding-bottom:6px; }
+  .exp-card{ min-width:420px; border-radius:12px; background:var(--panel); border:1px solid var(--cardBorder); padding:12px; display:flex; gap:12px; align-items:flex-start; }
+  .exp-card img{ width:160px; height:110px; object-fit:cover; border-radius:8px; image-rendering: pixelated; }
+  .exp-info{ flex:1; font-size:14px; color:var(--text); }
+
+  .exp-carousel{ display:flex; gap:8px; align-items:center; margin-top:8px; }
+  .exp-carousel img{ width:220px; height:120px; object-fit:cover; border-radius:8px; image-rendering: pixelated; }
+
+  /* Projects: horizontal cards (same as exp style) */
+  .proj-list{ display:flex; gap:12px; overflow:auto; padding-bottom:6px; }
+  .proj-card{ min-width:420px; border-radius:12px; background:var(--panel); border:1px solid var(--cardBorder); padding:12px; display:flex; gap:12px; align-items:flex-start; }
+  .proj-card img{ width:200px; height:120px; object-fit:cover; border-radius:8px; image-rendering: pixelated; }
+  .proj-meta{ flex:1; }
+  .proj-cta{ margin-top:8px; display:flex; gap:8px; }
+
+  
+
+  /* Awards: showcase grid */
+  .awards-grid{ display:grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap:12px; }
+  .award-card{ border-radius:12px; overflow:hidden; background:var(--panel); border:1px solid var(--cardBorder); padding:8px; }
+  .award-card img{ width:100%; height:140px; object-fit:cover; border-radius:8px; image-rendering: pixelated; }
+  .award-card .meta{ margin-top:8px; font-size:13px; color:var(--text); }
+
+  /* footer small note */
+  footer{ padding:20px; text-align:center; color:var(--text); opacity:0.7; font-size:13px; }
+
+  /* Cursor */
+  html,body{cursor:none}
+  #cursor{ position:fixed; z-index:99999; pointer-events:none; transform: translate(-50%,-50%); }
+  /* make crown svg small */
+  #cursor svg{ width:28px; height:28px; filter: drop-shadow(0 6px 14px rgba(255,0,150,0.08)); }
+
+  /* sparkle */
+  .sparkle{ position:fixed; width:8px; height:8px; border-radius:2px; background:var(--hot-pink); pointer-events:none; transform:translate(-50%,-50%); box-shadow:0 0 10px rgba(255,0,150,0.2); opacity:0.9; animation: sparkle 700ms linear forwards; }
+  @keyframes sparkle{ 0%{transform:translate(-50%,-50%) scale(1) rotate(0);} 100%{transform:translate(-50%,-60%) scale(.2) rotate(45deg); opacity:0;} }
+
+  /* Responsive */
+  @media (max-width:980px){
+    .container{ flex-direction:column; gap:14px; padding:0 12px; }
+    .home-left{ width:100%; flex-basis:auto; }
+    .home-right{ order:2; }
+    .edu-grid{ grid-template-columns: 1fr; }
+    .exp-list, .proj-list{ flex-direction:column; }
+    header{ padding:10px 12px; }
+    nav.topnav{ gap:8px; font-size:11px; }
+  }
+</style>
+</head>
+<body data-theme="dark">
+
+<header id="siteHeader" aria-hidden="false">
+  <div class="brand">
+    <div class="logo-glitter" aria-hidden="true">Ifetayo's Portfolio</div>
+  </div>
+
+  <div style="display:flex; align-items:center; gap:16px;">
+    <nav class="topnav" role="navigation" aria-label="Main navigation">
+      <a href="#" data-screen="home">Home</a>
+      <a href="#" data-screen="education">Education</a>
+      <a href="#" data-screen="experience">Experience</a>
+      <a href="#" data-screen="projects">Projects</a>
+      <a href="#" data-screen="awards">Awards</a>
+    </nav>
+
+    <div class="theme-toggle" title="Toggle theme">
+      <button id="themeBtn" style="background:transparent;border:none; font-family:var(--pixel); color:var(--hot-pink); font-size:16px;">☾</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- HOME -->
+  <section id="home" class="screen active" role="region" aria-label="Home">
+    <div class="container">
+      <div class="home-left">
+        <img id="profilePhoto" class="profile-photo" src="/Users/ifespencer/Desktop/port.icons/ifegrad1 3.jpg" alt="photo">
+        <div style="margin-top:12px;">
+          <!-- Socials https://linktr.ee/ifetayospencer -->
+           
+          <div class="socials" aria-hidden="false">
+            <a class="pill" href="https://github.com/iffysravioli" target="_blank" rel="noopener" title="GitHub">🐙 GitHub</a>
+            <a class="pill" href="https://www.linkedin.com/in/ifemichaelaspencer/" target="_blank" rel="noopener" title="LinkedIn">🔗 LinkedIn</a>
+            <a class="pill" href="mailto:21itmj@gmail.com?subject=Hello%20Ifetayo" title="Contact me">✉️ Contact</a>
+            <a class="pill" href="https://tr.ee/Clkgdurid0" target="_blank" rel="noopener" title="Resume">🔗 Resume</a>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="home-right">
+        <h1>Ifetayo Spencer</h1>
+        <div style="font-size:13px; color:var(--lav); font-weight:700;">B.S. Computer Science • Howard University (2021–2025)</div>
+
+        <p class="bio" style="margin-top:12px;">
+          Ifetayo Spencer is a recent Computer Science graduate from Howard University. Beginning in Fall 2026, she will continue her studies abroad in Computer Science. With a heart for service and a passion for inclusion, she has left a lasting legacy of empowerment and unity during her undergraduate years. Beyond the university, Ifetayo is determined to continue creating change. She aspires to work in tech and launch a nonprofit dedicated to providing STEAM opportunities for high school students in underserved communities.
+        </p>
+
+        <div style="margin-top:10px;">
+          <div style="font-weight:800; font-size:13px; margin-bottom:6px;">TECHNICAL SKILLS & SOFTWARE PROFICIENCIES</div>
+          <div class="skills" role="list">
+            <div class="skill">Python</div><div class="skill">SQL</div><div class="skill">Java</div><div class="skill">Kotlin</div>
+            <div class="skill">C</div><div class="skill">JavaScript</div><div class="skill">Lua</div><div class="skill">Swift</div>
+            <div class="skill">Bash</div><div class="skill">Linux</div><div class="skill">HTML</div>
+          </div>
+
+          <div style="margin-top:8px;">
+            <div style="font-weight:700; font-size:13px; margin-bottom:6px;">Tools & Frameworks</div>
+            <div class="skills">
+              <div class="skill">Xcode</div><div class="skill">Excel</div><div class="skill">Premiere Pro</div><div class="skill">After Effects</div>
+              <div class="skill">Canva</div><div class="skill">Cap Cut</div><div class="skill">Photoshop</div><div class="skill">Git</div>
+              <div class="skill">AWS</div><div class="skill">Figma</div><div class="skill">Unity</div><div class="skill">ReactJS</div>
+        
+          <!-- <div style="margin-top:8px;">
+            <div style="font-weight:700; font-size:13px; margin-bottom:6px;">Certifications</div>
+            <div class="skills">
+              <div class="skill"><p><a href="https://www.credly.com/badges/bee13c08-6e4e-457f-9af6-e65365c28ed8/linked_in_profile">Unity Essentials Pathway</a></p></div><div class="skill"><a href="https://www.credly.com/badges/86b5aa6a-b9ea-49d0-8f2a-ed6313c6f1a6/linked_in_profile">2024 AMIE Design Challenge Practitioner Badge
+              </a> -->
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" class="screen" role="region" aria-label="Education">
+    <div class="container" style="flex-direction:column; gap:16px;">
+      <div class="edu-grid" style="width:100%; max-width:1100px;">
+        <div class="edu-card">
+          <h2 style="margin:0 0 8px 0; font-family:var(--pixel); color:var(--hot-pink);">Education</h2>
+          <div style="font-weight:800">B.S. in Computer Science</div>
+          <div style="margin-top:6px; color:var(--lav)">Howard University • 2021–2025</div>
+          <p style="margin-top:8px; color:var(--text); font-size:14px;">
+            <strong>Coursework:</strong> Applied Data Science (Python), Database Systems (SQL), Discrete Structures, Cloud Computing (AWS), Fundamentals of Algorithms, Theory of Computation, Principles of Economics, Software Engineering, Operating Systems, Mobile App Development, Game Engine Programming, Natural Language Processing.
+          </p>
+        </div>
+
+        <div class="edu-card">
+          <h2 style="font-family:var(--pixel); color:var(--hot-pink); margin:0 0 8px 0;">On-Campus Involvement</h2>
+          <div style="font-size:14px; color:var(--text)">
+            Howard University Royal Court — Miss College Of Engineering & Architecture <br>
+            Howard University’s College Of Engineering & Architecture Student Council Treasurer + Programs Director<br>
+            Howard University's College Hall South Dorm Council — Vice President <br>
+            Phi Sigma Rho — Social Chair / PR Chair / Rush Chair<br>
+            Society of Women Engineers — Social Chair <br>
+            Girls Who Code — Member & Brand Ambassador <br>
+            National Society of Black Engineers — Member <br>
+          </div>
+          <div style="margin-top:12px;">
+            <div class="carousel" id="eduCarousel">
+              <div class="carousel-inner" id="eduInner">
+                <img src="/Users/ifespencer/Desktop/port.icons/IMG_6915.jpg" alt="Campus 1">
+                <img src="/Users/ifespencer/Desktop/port.icons/IMG_7463.jpg" alt="Campus 2">
+                <img src="/Users/ifespencer/Desktop/port.icons/IMG_8568 2.jpg" alt="Campus 3">
+                <img src="/Users/ifespencer/Desktop/port.icons/IMG_9920.JPG" alt="Campus 4">
+                <img src="/Users/ifespencer/Desktop/port.icons/IMG956686.jpg" alt="Campus 5">
+                
+              </div>
+            </div>
+            <div class="carousel-controls">
+              <button class="pill" id="eduPrev">Prev</button>
+              <button class="pill" id="eduNext">Next</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="screen" role="region" aria-label="Experience">
+    <div style="max-width:1200px; margin:0 auto;">
+      <h2 style="font-family:var(--pixel); color:var(--hot-pink); margin-bottom:12px;">Experience</h2>
+      <div class="exp-list" id="expList">
+        <!-- Card 1: AbbVie -->
+        <div class="exp-card" data-card-index="0">
+          <div>
+            <img src="/Users/ifespencer/Desktop/port.icons/abbvielogo.jpeg" alt="AbbVie Logo">
+          </div>
+          <div class="exp-info">
+            <div style="font-weight:800">AbbVie — R&D Portfolio Program Management Intern (Summer 2024)</div>
+            <div style="margin-top:6px; color:var(--lav)">Chicago, IL</div>
+            <p style="margin-top:8px; font-size:14px; color:var(--text)">
+              Led & developed initiatives to tidy backend data (data responsibility matrix) and remove redundant fields aimed at improving user experience and streamlining data. Cross-collaborated with teams to deliver insights and recommendations to stakeholders.
+            </p>
+
+            <div class="exp-carousel" data-exp="0">
+              <button class="pill exp-prev">◀</button>
+              <img src="/Users/ifespencer/Desktop/port.icons/IMG_5673.jpg" alt="abbvie 1" class="exp-img">
+              <img src="/Users/ifespencer/Desktop/port.icons/IMG_3992.jpg alt="abbvie 2" style="display:none" class="exp-img">
+              </Users/ifespencer/Desktop/port.icons/IMG_5355.jpg"abbvie 3" style="display:none" class="exp-img">
+              <button class="pill exp-next">▶</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Intern Queen -->
+        <div class="exp-card" data-card-index="1">
+          <div>
+            <img src="/Users/ifespencer/Desktop/port.icons/iqlogo.jpeg" alt="Intern Queen">
+          </div>
+          <div class="exp-info">
+            <div style="font-weight:800">Intern Queen — Brand Ambassador (Remote)</div>
+            <div style="margin-top:6px; color:var(--lav)">Remote — Aug 2021–Present</div>
+            <p style="margin-top:8px; font-size:14px; color:var(--text)">
+              Executed branded digital campaigns for Handshake, Aeropostale, and Safeway, generating 20,000+ impressions and providing performance insights to internal teams.
+            </p>
+            <a href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE3OTUxNzAzOTIyOTA0NjU5?story_media_id=3120372164507919180&igsh=MThlcDg4bDQwdjJieA==/" target="_blank">Safeway</a>
+            <a href="https://www.instagram.com/reel/CpOugrnA9N8/" target="_blank">Aeropostale</a>
+            <a href="https://www.instagram.com/reel/CgAuxYzJZA7/" target="_blank">Handshake</a>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+  <!-- Section Title
+  <h2 style="font-size:1.8rem; margin-bottom:1rem;">Events & Marketing</h2>
+  <p style="font-size:1rem; margin-bottom:2rem;">
+    Award-winning event and marketing specialist with a passion for designing unforgettable experiences. I create impactful programs, craft strategic marketing campaigns, and collaborate with top-tier sponsors to bring events to life.
+  </p>
+
+  <!- Events Row -->
+  <!-- <div style="display:flex; overflow-x:auto; gap:1rem; padding-bottom:1rem; scroll-behavior:smooth;">
+   Event Card -->
+    <!-- <div class="event-card" style="min-width:250px; flex-shrink:0; border-radius:8px; overflow:hidden; background:#1f1f1f; position:relative; cursor:pointer; transition:transform .2s;">
+      <img src="event1.jpg" alt="Event 1" style="width:100%; height:150px; object-fit:cover;">
+      <div style="padding:.75rem;">
+        <h3 style="margin:0 0 .25rem 0; font-size:1.1rem;">Tech Talent Show</h3>
+        <p style="margin:0; font-size:.85rem; color:rgba(255,255,255,0.7);">Hosted 150+ attendees. Social media engagement grew by 60%.</p>
+      </div>
+      <div class="event-hover" style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(79,70,229,0.85); color:white; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; opacity:0; transition:opacity .3s; padding:1rem;">
+        <p style="margin:0;">150+ attendees</p>
+        <p style="margin:0;">Instagram reach: 5k+</p>
+        <p style="margin:0;">Engagement ↑ 60%</p>
+      </div> -->
+    <!-- </div> --> 
+
+    <!-- Event Card 2 -->
+    <!-- <div class="event-card" style="min-width:250px; flex-shrink:0; border-radius:8px; overflow:hidden; background:#1f1f1f; position:relative; cursor:pointer; transition:transform .2s;">
+      <img src="event2.jpg" alt="Event 2" style="width:100%; height:150px; object-fit:cover;">
+      <div style="padding:.75rem;">
+        <h3 style="margin:0 0 .25rem 0; font-size:1.1rem;">Women in STEM Panel</h3>
+        <p style="margin:0; font-size:.85rem; color:rgba(255,255,255,0.7);">200+ attendees. Social reach 5k+ impressions.</p>
+      </div>
+      <div class="event-hover" style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(79,70,229,0.85); color:white; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; opacity:0; transition:opacity .3s; padding:1rem;">
+        <p style="margin:0;">200+ attendees</p>
+        <p style="margin:0;">Social reach: 5k+</p>
+        <p style="margin:0;">Engagement ↑ 70%</p>
+      </div>
+    </div> -->
+
+    <!-- Add more events as needed -->
+  <!-- </div>
+
+   Sponsors Section -->
+  <!-- <h3 style="margin-top:2rem; font-size:1.3rem;">Sponsors & Partners</h3>
+  <div style="display:flex; flex-wrap:wrap; gap:1rem; margin-top:.5rem;">
+    <img src="sponsor1.png" alt="Sponsor 1" style="height:50px;">
+    <img src="sponsor2.png" alt="Sponsor 2" style="height:50px;">
+    <img src="sponsor3.png" alt="Sponsor 3" style="height:50px;">
+    <img src="sponsor4.png" alt="Sponsor 4" style="height:50px;"> -->
+    <!-- Add more sponsor logos -->
+  <!-- </div>
+</div> -->
+
+<!-- <script>
+const eventCards = document.querySelectorAll('.event-card'); -->
+
+<!-- eventCards.forEach(card => {
+  card.addEventListener('mouseenter', () => {
+    card.querySelector('.event-hover').style.opacity = '1';
+    card.style.transform = 'scale(1.05)';
+  });
+  card.addEventListener('mouseleave', () => {
+    card.querySelector('.event-hover').style.opacity = '0';
+    card.style.transform = 'scale(1)';
+  });
+});
+</script> -->
+    
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="screen" role="region" aria-label="Projects">
+    <div style="max-width:1200px; margin:0 auto;">
+      <h2 style="font-family:var(--pixel); color:var(--hot-pink); margin-bottom:12px;">Projects</h2>
+      <div class="proj-list" id="projList">
+        
+    <div class="proj-card">
+          <img src="/Users/ifespencer/Desktop/port.icons/IMG_1985 (1).jpg" alt="Beauty Buddy">
+          <div class="proj-meta">
+            <div style="font-weight:800">Beauty Buddy</div>
+            <div style="margin-top:6px; color:var(--lav)">Swift • Python (CV) • 2025</div>
+            <p style="margin-top:8px; color:var(--text); font-size:14px;">AI-powered iOS app that provides personalized fashion recommendations using facial recognition and color season detection.</p>
+            <div class="proj-cta">
+              <a class="pill" href="https://github.com/iffysravioli/beautybuddy" target="_blank">Code</a>
+            </div>
+          </div>
+        </div>
+
+
+     <div class="proj-card">
+          <img src="/Users/ifespencer/Desktop/port.icons/IMG_3015.jpg" alt="Bayou Brawl">
+          <div class="proj-meta">
+            <div style="font-weight:800">Bayou Brawl</div>
+            <div style="margin-top:6px; color:var(--lav)">Unity • C# • 2025</div>
+            <p style="margin-top:8px; color:var(--text); font-size:14px;">2D multiplayer mini-game inspired by The Princess and the Frog. Built in Unity with custom sprites.</p>
+            <div class="proj-cta">
+              <a class="pill" href="https://devpost.com/software/the-bayou-brawl#updates" target="_blank">Backend/Code
+              <a class="pill" href="https://www.youtube.com/watch?v=UWw-RPm6QP8&embeds_referring_euri=https%3A%2F%2Fdevpost.com%2F&source_ve_path=MjM4NTE&themeRefresh=1" target="_blank">Demo</a>
+            </div>
+          </div>
+        </div>   
+</div>
+      <div class="proj-card">
+          <img src="/Users/ifespencer/Desktop/port.icons/wellnesswave-removebg-preview.png" alt="Wellness Wave">
+          <div class="proj-meta">
+            <div style="font-weight:800">Wellness Wave</div>
+            <div style="margin-top:6px; color:var(--lav)">HTML, Figma, Canva, JavaScript • 2023</div>
+            <p style="margin-top:8px; color:var(--text); font-size:14px;">Developed a health app using ReactJS and Bootstrap to promote mental well-being through a chatbot offering personalized lifestyle
+suggestions.</p>
+            <div class="proj-cta">
+              <a class="pill" href="https://devpost.com/software/wellness-wave" target="_blank">Open Site</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="proj-card">
+          <img src="/Users/ifespencer/Desktop/port.icons/hairicon-removebg-preview.png" alt="Styles by Scorpio">
+          <div class="proj-meta">
+            <div style="font-weight:800">Styles by Scorpio</div>
+            <div style="margin-top:6px; color:var(--lav)">Wix & Canva Custom Design• 2025</div>
+            <p style="margin-top:8px; color:var(--text); font-size:14px;">Custom hair salon website featuring booking integration and a portfolio of styles.</p>
+            <div class="proj-cta">
+              <a class="pill" href="https://ifespencer.wixsite.com/styles-by-scorpio-co" target="_blank">Open Site</a>
+            </div>
+          </div>
+        </div>
+        <div class="proj-card">
+          <img src="/Users/ifespencer/Desktop/port.icons/fileicon-removebg-preview.png" alt="TRIT Consulting Services">
+          <div class="proj-meta">
+            <div style="font-weight:800">TRIT Consulting Services</div>
+            <div style="margin-top:6px; color:var(--lav)">Wix & Canva Custom Design• 2025</div>
+            <p style="margin-top:8px; color:var(--text); font-size:14px;">Custom website design and branding services for businesses.</p>
+            <div class="proj-cta">
+              <a class="pill" href="https://example.com/trit" target="_blank">Open Site</a>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p>
+            Looking to book for a website upgrade, web design, or app? Connect with me to make your dreams a reality!
+          </p>
+          <div style="margin-top:.75rem; font-size:.76rem; color:rgba(255,255,255,0.66);">
+
+  </div>
+
+  <form id="contactForm" style="margin-top:.6rem; display:flex; gap:.5rem; flex-direction:column;">
+    <input name="name" placeholder="Your name" required 
+      style="padding:.6rem; border-radius:8px; border:1px solid rgba(255,255,255,0.04); background:transparent; color:inherit;">
+    
+    <input name="email" type="email" placeholder="Your email" required 
+      style="padding:.6rem; border-radius:8px; border:1px solid rgba(255,255,255,0.04); background:transparent; color:inherit;">
+    
+    <textarea name="message" placeholder="Message" rows="4" required 
+      style="padding:.6rem; border-radius:8px; border:1px solid rgba(255,255,255,0.04); background:transparent; color:inherit;"></textarea>
+    
+    <div style="display:flex; gap:.5rem;">
+      <button type="submit" class="btn" style="padding:.6rem 1rem; border-radius:8px; border:none; background:#4f46e5; color:white; cursor:pointer;">
+        Send
+      </button>
+      <button type="button" id="clearContact" class="btn" 
+        style="padding:.6rem 1rem; border-radius:8px; border:none; background:#6b7280; color:white; cursor:pointer;">
+        Clear
+      </button>
+    </div>
+  </form>
+</div>
+
+<script>
+const form = document.getElementById('contactForm');
+const clearBtn = document.getElementById('clearContact');
+
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  const name = form.name.value;
+  const email = form.email.value;
+  const message = form.message.value;
+
+  // Opens the default mail client with prefilled info
+  window.location.href = `mailto:21itmj@gmail.com?subject=Project Inquiry from ${encodeURIComponent(name)}&body=${encodeURIComponent(message + "\n\nFrom: " + name + " (" + email + ")")}`;
+});
+
+clearBtn.addEventListener('click', () => {
+  form.reset();
+});
+</script>
+
+    </div>
+  </section>
+
+  <!-- AWARDS -->
+  <section id="awards" class="screen" role="region" aria-label="Awards">
+    <div style="max-width:1100px; margin:0 auto;">
+      <h2 style="font-family:var(--pixel); color:var(--hot-pink); margin-bottom:12px;">Awards & Accolades</h2>
+      <div class="awards-grid" id="awardsGrid">
+        <div class="award-card">
+          <img src="/Users/ifespencer/Desktop/port.icons/IMG_3443.jpg" alt="Most Inspiring Student">
+          <div class="meta"><strong>Voted Most Inspiring Student</strong><div style="font-size:13px; color:var(--lav);">Howard University</div></div>
+        </div>
+
+        <div class="award-card">
+          <img src="/Users/ifespencer/Desktop/port.icons/IMG_5670.jpg" alt="Future Leader">
+          <div class="meta"><strong>Future Leader Award</strong><div style="font-size:13px; color:var(--lav);">Howard University Alumni Association</div>May 2025</div>
+          <a href="https://www.linkedin.com/feed/update/urn:li:activity:7352351552579227648/" target="_blank">Read More</a>
+        </div>
+
+        <div class="award-card">
+          <img src="/Users/ifespencer/Desktop/port.icons/IFETAYO SPENCER_1080.png" alt="30 Under 30">
+          <div class="meta"><strong>Sacramento Observer 2025 30 Under 30</strong><div style="font-size:13px; color:var(--lav);">2025</div></div>
+          <a href="https://sacobserver.com/ifetayo-spencer/" target="_blank">Read More</a>
+        </div>
+        <div class="award-card">
+          <img src="/Users/ifespencer/Desktop/port.icons/IMG_2568.jpg" alt="Student Council Director of the Month">
+          <div class="meta"><strong>Howard University’s College Of Engineering & Architecture Student Council Department Director Of The Month (2X)</strong><div style="font-size:13px; color:var(--lav);"></div></div>
+        </div>
+        <div class="award-card">
+          <img src="/Users/ifespencer/Desktop/port.icons/IMG_8568 2.jpg" alt="Howard University's Royal Court - MVP">
+          <div class="meta"><strong>Howard University's Royal Court - MVP</strong><div style="font-size:13px; color:var(--lav);"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div style="max-width:1100px; margin:0 auto;">Made with Love by Ifetayo Spencer. Last Updated Nov 2025</div>
+</footer>
+
+<!-- custom crown cursor -->
+<div id="cursor" aria-hidden="true">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M3 7l4 8h10l4-8-4 2-3-4-3 4-3-4-3 4-4-2z" fill="#ff90d0"/>
+    <circle cx="6.5" cy="7.5" r="0.9" fill="#ffd24d"/>
+    <circle cx="12" cy="4.5" r="0.9" fill="#ffd24d"/>
+    <circle cx="17.5" cy="7.5" r="0.9" fill="#ffd24d"/>
+  </svg>
+</div>
+
+<script>
+/* ============ NAVIGATION (SPA-style) ============ */
+const links = document.querySelectorAll('nav.topnav a');
+const screens = document.querySelectorAll('.screen');
+const header = document.getElementById('siteHeader');
+const cursorEl = document.getElementById('cursor');
+let currentScreen = 'home';
+
+function showScreen(id){
+  screens.forEach(s => {
+    if(s.id === id) { s.classList.add('active'); } else { s.classList.remove('active'); }
+  });
+  currentScreen = id;
+  // subtle click SFX
+  sfxClick();
+}
+
+// attach nav
+links.forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const id = a.dataset.screen;
+    showScreen(id);
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+
+/* Header fade-out on scroll */
+let scrolled = false;
+window.addEventListener('scroll', () => {
+  if(window.scrollY > 120){ header.classList.add('scrolled'); } else { header.classList.remove('scrolled'); }
+});
+
+/* ============ THEME TOGGLE ============ */
+const themeBtn = document.getElementById('themeBtn');
+const root = document.documentElement;
+let theme = localStorage.getItem('portfolioTheme') || 'dark';
+function applyTheme(t){
+  root.setAttribute('data-theme', t === 'light' ? 'light' : 'dark');
+  themeBtn.textContent = t === 'light' ? '☀' : '☾';
+  localStorage.setItem('portfolioTheme', t);
+}
+themeBtn.addEventListener('click', ()=> { theme = theme === 'dark' ? 'light' : 'dark'; applyTheme(theme); sfxClick();});
+applyTheme(theme);
+
+/* ============ CURSOR & SPARKLES ============ */
+document.documentElement.style.cursor = 'none';
+window.addEventListener('mousemove', e => {
+  cursorEl.style.left = e.clientX + 'px';
+  cursorEl.style.top = e.clientY + 'px';
+  // create small sparkle randomly
+  if(Math.random() < 0.15){
+    const sp = document.createElement('div');
+    sp.className = 'sparkle';
+    document.body.appendChild(sp);
+    sp.style.left = (e.clientX + (Math.random()*20-10)) + 'px';
+    sp.style.top = (e.clientY + (Math.random()*20-10)) + 'px';
+    setTimeout(()=> sp.remove(), 800);
+  }
+});
+window.addEventListener('touchstart', ()=> { document.documentElement.style.cursor = 'auto'; cursorEl.style.display='none'; });
+
+/* ============ SFX USING WebAudio ============ */
+let audioCtx = null;
+function initAudio(){
+  if(audioCtx) return;
+  audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+}
+function sfxClick(){
+  initAudio();
+  const now = audioCtx.currentTime;
+  const o = audioCtx.createOscillator();
+  const g = audioCtx.createGain();
+  o.type='square'; o.frequency.setValueAtTime(880, now);
+  g.gain.setValueAtTime(0.0001, now);
+  o.connect(g); g.connect(audioCtx.destination);
+  g.gain.exponentialRampToValueAtTime(0.06, now+0.01);
+  g.gain.exponentialRampToValueAtTime(0.00001, now+0.18);
+  o.start(now); o.stop(now+0.20);
+}
+function sfxHover(){
+  initAudio();
+  const now = audioCtx.currentTime;
+  const o = audioCtx.createOscillator();
+  const g = audioCtx.createGain();
+  o.type='sine'; o.frequency.setValueAtTime(1200, now);
+  g.gain.setValueAtTime(0.0001, now);
+  o.connect(g); g.connect(audioCtx.destination);
+  g.gain.exponentialRampToValueAtTime(0.05, now+0.01);
+  g.gain.exponentialRampToValueAtTime(0.00001, now+0.09);
+  o.start(now); o.stop(now+0.12);
+}
+
+/* attach hover sound to interactive elements */
+document.querySelectorAll('a, button, .pill').forEach(el=>{
+  el.addEventListener('mouseenter', ()=> sfxHover());
+});
+
+/* ============ EDUCATION CAROUSEL ============ */
+const eduInner = document.getElementById('eduInner');
+const eduPrev = document.getElementById('eduPrev');
+const eduNext = document.getElementById('eduNext');
+let eduIndex = 0;
+function updateEdu(){
+  const w = eduInner.children[0].getBoundingClientRect().width;
+  eduInner.style.transform = `translateX(${-eduIndex * w}px)`;
+}
+eduPrev.addEventListener('click', ()=> { eduIndex = Math.max(0, eduIndex-1); updateEdu(); sfxClick();});
+eduNext.addEventListener('click', ()=> { eduIndex = Math.min(eduInner.children.length-1, eduIndex+1); updateEdu(); sfxClick();});
+window.addEventListener('resize', updateEdu);
+setTimeout(updateEdu,120);
+
+/* ============ EXPERIENCE: per-card carousel controls ============ */
+document.querySelectorAll('.exp-card').forEach(card => {
+  const imgs = card.querySelectorAll('.exp-img');
+  const prev = card.querySelector('.exp-prev');
+  const next = card.querySelector('.exp-next');
+  let idx = 0;
+  function show(){
+    imgs.forEach((im,i)=> im.style.display = i===idx ? '' : 'none');
+  }
+  prev.addEventListener('click', ()=> { idx = Math.max(0, idx-1); show(); sfxClick();});
+  next.addEventListener('click', ()=> { idx = Math.min(imgs.length-1, idx+1); show(); sfxClick();});
+});
+
+
+showScreen('home');
+
+</script>
+</body>
+</html>
