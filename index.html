@@ -471,58 +471,127 @@ initCarousel('service1Inner', 'service1Prev', 'service1Next');
 initCarousel('service2Inner', 'service2Prev', 'service2Next');
 </script>
 
+<!-- EXPERIENCE -->
+<!-- EXPERIENCE SECTION -->
+<section id="experience" class="screen" role="region" aria-label="Experience">
+  <div style="max-width:1200px; margin:0 auto;">
+    <h2 style="font-family:var(--pixel); color:var(--hot-pink); margin-bottom:12px;">Experience</h2>
+    <div class="exp-list" id="expList">
 
-</section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience" class="screen" role="region" aria-label="Experience">
-    <div style="max-width:1200px; margin:0 auto;">
-      <h2 style="font-family:var(--pixel); color:var(--hot-pink); margin-bottom:12px;">Experience</h2>
-      <div class="exp-list" id="expList">
-        <!-- Card 1: AbbVie -->
-        <div class="exp-card" data-card-index="0">
-          <div>
-            <img src="port.icons/abbvielogo.jpeg" alt="AbbVie Logo">
-          </div>
-          <div class="exp-info">
-            <div style="font-weight:800">AbbVie — R&D Portfolio Program Management Intern (Summer 2024)</div>
-            <div style="margin-top:6px; color:var(--lav)">Chicago, IL</div>
-            <p style="margin-top:8px; font-size:14px; color:var(--text)">
-              Led & developed initiatives to tidy backend data (data responsibility matrix) and remove redundant fields aimed at improving user experience and streamlining data. Cross-collaborated with teams to deliver insights and recommendations to stakeholders.
-            </p>
-
-            <div class="exp-carousel" data-exp="0">
-              <button class="pill exp-prev">◀</button>
-              <img src="port.icons/IMG_5673.jpg" alt="abbvie 1" class="exp-img">
-              <img src="port.icons/IMG_5355.jpg" alt="abbvie 2" style="display:none" class="exp-img">
-              <img src="port.icons/IMG_3992.jpg" alt="abbvie 3" style="display:none" class="exp-img">
-              <button class="pill exp-next">▶</button>
-            </div>
+      <!-- Card 1: AbbVie -->
+      <div class="exp-card" data-card-index="0" style="display:flex; gap:16px; margin-bottom:24px;">
+        <div>
+          <img src="port.icons/abbvielogo.jpeg" alt="AbbVie Logo" style="width:80px; height:80px; object-fit:contain;">
+        </div>
+        <div class="exp-info">
+          <div style="font-weight:800">AbbVie — R&D Portfolio Program Management Intern (Summer 2024)</div>
+          <div style="margin-top:6px; color:var(--lav)">Chicago, IL</div>
+          <p style="margin-top:8px; font-size:14px; color:var(--text)">
+            Led & developed initiatives to tidy backend data (data responsibility matrix) and remove redundant fields aimed at improving user experience and streamlining data. Cross-collaborated with teams to deliver insights and recommendations to stakeholders.
+          </p>
+          <div class="exp-carousel" data-exp="0" style="display:flex; align-items:center; gap:8px; margin-top:8px;">
+            <button class="pill exp-prev">◀</button>
+            <img src="port.icons/IMG_5673.jpg" alt="abbvie 1" class="exp-img" style="width:150px; height:100px; object-fit:cover;">
+            <img src="port.icons/IMG_5355.jpg" alt="abbvie 2" class="exp-img" style="display:none; width:150px; height:100px; object-fit:cover;">
+            <img src="port.icons/IMG_3992.jpg" alt="abbvie 3" class="exp-img" style="display:none; width:150px; height:100px; object-fit:cover;">
+            <button class="pill exp-next">▶</button>
           </div>
         </div>
+      </div>
 
-        <!-- Card 2: Intern Queen -->
-        <div class="exp-card" data-card-index="1">
-          <div>
-            <img src="port.icons/iqlogo.jpeg" alt="Intern Queen">
-          </div>
-          <div class="exp-info">
-            <div style="font-weight:800">Intern Queen — Brand Ambassador (Remote)</div>
-            <div style="margin-top:6px; color:var(--lav)">Remote — Aug 2021–Present</div>
-            <p style="margin-top:8px; font-size:14px; color:var(--text)">
-              Executed branded digital campaigns for Handshake, Aeropostale, and Safeway, generating 20,000+ impressions and providing performance insights to internal teams.
-            </p>
-            <a href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE3OTUxNzAzOTIyOTA0NjU5?story_media_id=3120372164507919180&igsh=MThlcDg4bDQwdjJieA==/" target="_blank">Safeway</a>
-            <a href="https://www.instagram.com/reel/CpOugrnA9N8/" target="_blank">Aeropostale</a>
+      <!-- Card 2: Intern Queen -->
+      <div class="exp-card" data-card-index="1" style="display:flex; gap:16px; margin-bottom:24px;">
+        <div>
+          <img src="port.icons/iqlogo.jpeg" alt="Intern Queen Logo" style="width:80px; height:80px; object-fit:contain;">
+        </div>
+        <div class="exp-info">
+          <div style="font-weight:800">Intern Queen — Brand Ambassador (Remote)</div>
+          <div style="margin-top:6px; color:var(--lav)">Remote — Aug 2021–Present</div>
+          <p style="margin-top:8px; font-size:14px; color:var(--text)">
+            Executed branded digital campaigns for Handshake, Aeropostale, and Safeway, generating 20,000+ impressions and providing performance insights to internal teams.
+          </p>
+          <div style="margin-top:6px;">
+            <a href="https://www.instagram.com/s/.../" target="_blank">Safeway</a> | 
+            <a href="https://www.instagram.com/reel/CpOugrnA9N8/" target="_blank">Aeropostale</a> | 
             <a href="https://www.instagram.com/reel/CgAuxYzJZA7/" target="_blank">Handshake</a>
-
-            </div>
-          </div>
+</div>
         </div>
-
       </div>
 
     </div>
+  </div>
+<!-- EVENTS & MARKETING SECTION -->
+<section id="events-marketing" aria-label="Events & Marketing">
+  <div style="max-width:1200px; margin:0 auto; flex-direction:column; display:flex; gap:24px;">
+    <h2 style="font-family:var(--pixel); color:var(--hot-pink); margin-bottom:12px;">Events & Marketing</h2>
+    <p style="font-family:var(--pixel); font-size:14px; color:var(--text); margin-bottom:16px;">
+      Award-winning event and marketing specialist with a passion for designing unforgettable experiences. 
+      I create impactful programs, craft strategic marketing campaigns, and collaborate with top-tier sponsors to bring events to life. Organized 100+ programs during my time at Howard University.
+    </p>
+
+    <!-- Event Cards -->
+
+    
+    <div class="event-card" style="background:#1f1f1f; border-radius:8px; padding:16px; margin-bottom:24px;">
+      <h3 style="font-family:var(--pixel); color:var(--hot-pink); margin-bottom:6px;">
+        Howard University’s College of Engineering & Architecture: Programs Director & Treasurer (2022-2023)
+      </h3>
+      <p style="font-family:var(--pixel); font-size:14px; color:var(--text); margin-bottom:8px;">
+        Revived and led CEA Week (1,000+ attendees), planning 50+ programs to boost student morale and career growth. Managed financial operations and secured $80,000+ in funding and grants to support student organizations and events.
+      </p>
+      <ul style="font-family:var(--pixel); font-size:14px; color:var(--text); margin-left:16px; margin-bottom:8px;">
+        <li>Oversaw department budgets and tracked income and expenses to assist in gaining sponsorship funding.</li>
+        <li>Boosted engagement by 25% through strategic social media marketing and cross-campus collaboration.</li>
+        <li>Coordinated planning of all programs and maintained budgets within the College of Engineering & Architecture.</li>
+        <li>Successfully reinstated CEA Week, boosting student morale and engagement on campus.</li>
+        <li>Recognized as Director of the Month and Department of the Month for outstanding contributions both semesters.</li>
+        <li>Assisted groups like ASME and HU Robotics in obtaining institutional and external funding.</li>
+      </ul>
+    </div>
+
+   
+
+    <div class="event-card" style="background:#1f1f1f; border-radius:8px; padding:16px; margin-bottom:24px;">
+      <h3 style="font-family:var(--pixel); color:var(--hot-pink); margin-bottom:6px;">
+        Phi Sigma Rho, National Sorority, Phi Chapter – Social Chair / PR Chair / Rush Chair (Nov 2023 - May 2025)
+      </h3>
+      <ul style="font-family:var(--pixel); font-size:14px; color:var(--text); margin-left:16px; margin-bottom:8px;">
+        <li>Organized and executed the largest rush week turnout in chapter history with 300+ prospects.</li>
+        <li>Managed PR and social media presence (1,000+ followers).</li>
+        <li>Secured sponsorships from companies to support social events and initiatives.</li>
+        <li>Boosted engagement with the community and enhanced chapter visibility.</li>
+        <li>Secured $2,000+ in sponsorships for events.</li>
+      </ul>
+    </div>
+
+    <div class="event-card" style="background:#1f1f1f; border-radius:8px; padding:16px; margin-bottom:24px;">
+      <h3 style="font-family:var(--pixel); color:var(--hot-pink); margin-bottom:6px;">
+        Howard University College Hall South Hall Council – Vice President
+      </h3>
+      <ul style="font-family:var(--pixel); font-size:14px; color:var(--text); margin-left:16px; margin-bottom:8px;">
+        <li>Advocated for student voices and planned engaging programming.</li>
+        <li>Emphasized inclusion, communication, and resident needs to create a welcoming and safe environment.</li>
+        <li>Established new traditions and a family-oriented atmosphere to make CHS a true "safe haven".</li>
+        <li>Ran social media account and promotion for the Hall Council Instagram.</li>
+        <li>Delegated tasks to Hall Council Eboard.</li>
+      </ul>
+    </div>
+
+    <!-- Sponsors -->
+    <h3 style="font-family:var(--pixel); margin-top:2rem; font-size:1.3rem; color:var(--hot-pink);">Companies I’ve Partnered With:</h3>
+    <div style="display:flex; flex-wrap:wrap; gap:1rem; margin-top:.5rem; align-items:center;">
+      <img src="port.icons/sponsor1.png" alt="Sponsor 1" style="height:50px;">
+      <img src="port.icons/sponsor2.png" alt="Sponsor 2" style="height:50px;">
+      <img src="port.icons/sponsor3.png" alt="Sponsor 3" style="height:50px;">
+      <img src="port.icons/sponsor4.png" alt="Sponsor 4" style="height:50px;">
+    </div>
+
+  </div>
+</section>
+
+</script>
+
+
   </section>
 
   <!-- PROJECTS -->
@@ -587,7 +656,7 @@ suggestions.</p>
           <div class="proj-meta">
             <div style="font-weight:800">TRIT Consulting Services</div>
             <div style="margin-top:6px; color:var(--lav)">Wix, Canva, Photoshop, & Custom Graphic Design • 2025</div>
-            <p style="margin-top:8px; color:var(--text); font-size:14px;">Custom website design and branding services for businesses.</p>
+            <p style="margin-top:8px; color:var(--text); font-size:14px;">Custom website design and branding services for Consulting business.</p>
             <div class="proj-cta">
               <a class="pill" href="https://example.com/trit" target="_blank">Open Site</a>
             </div>
