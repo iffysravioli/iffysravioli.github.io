@@ -14,7 +14,7 @@
     --bg-light:#fff6fb;
     --hot-pink:#ff2fa6;
     --magenta:#ff0080;
-    --lav:#d6b3e6;
+    --lav:#9862af;
     --panel-dark: rgba(255,255,255,0.03);
     --panel-light: rgba(0,0,0,0.04);
     --text-light: #f9f6ff;
@@ -352,127 +352,103 @@
   </section>
 <!-- EDUCATION & SERVICE -->
 <section id="education" class="screen" role="region" aria-label="Education">
-  <div class="container" style="flex-direction:column; gap:24px;">
+  <div style="max-width:1200px; margin:0 auto; display:flex; flex-direction:column; gap:24px;">
 
     <!-- EDUCATION -->
-    <div class="edu-card" style="max-width:1100px;">
+    <div class="edu-card">
       <h2 style="margin:0 0 8px 0; font-family:var(--pixel); color:var(--hot-pink);">Education</h2>
-      <div style="font-weight:800">B.S. in Computer Science</div>
-      <div style="margin-top:6px; color:var(--lav)">Howard University • 2021–2025</div>
+      <div style="font-weight:800;">B.S. in Computer Science</div>
+      <div style="margin-top:6px; color:var(--lav);">Howard University • 2021–2025</div>
+
       <p style="margin-top:8px; color:var(--text); font-size:14px;">
-        <strong>Coursework:</strong> Applied Data Science (Python), Database Systems (SQL), Discrete Structures, Cloud Computing (AWS), Fundamentals of Algorithms, Theory of Computation, Principles of Economics, Software Engineering, Operating Systems, Mobile App Development, Game Engine Programming, Natural Language Processing.
+        <strong>Coursework:</strong> Applied Data Science (Python), Database Systems (SQL), Discrete Structures,
+        Cloud Computing (AWS), Fundamentals of Algorithms, Theory of Computation, Principles of Economics,
+        Software Engineering, Operating Systems, Mobile App Development, Game Engine Programming,
+        Natural Language Processing.
       </p>
     </div>
 
-   <!-- ON-CAMPUS INVOLVEMENT -->
-<div class="edu-card" style="max-width:1100px; margin-top:24px;">
-  <h2 style="font-family:var(--pixel); color:var(--hot-pink); margin:0 0 12px 0;">
-    On-Campus Involvement
-  </h2>
+
+    <!-- ON-CAMPUS INVOLVEMENT -->
+    <!-- ON-CAMPUS INVOLVEMENT -->
+<div class="edu-card">
+  <h2 style="font-family:var(--pixel); color:var(--hot-pink); margin:0 0 12px 0;">On-Campus Involvement</h2>
 
   <div style="font-size:14px; color:var(--text); line-height:1.5; margin-bottom:16px;">
     Howard University Royal Court — Miss College Of Engineering & Architecture<br>
-    Howard University’s College Of Engineering & Architecture Student Council Treasurer + Programs Director<br>
-    Howard University's College Hall South Dorm Council — Vice President<br>
+    Howard University’s CEA Student Council — Treasurer + Programs Director<br>
+    College Hall South Dorm Council — Vice President<br>
     Phi Sigma Rho — Social Chair / PR Chair / Rush Chair<br>
     Society of Women Engineers — Social Chair<br>
     Girls Who Code — Member & Brand Ambassador<br>
     National Society of Black Engineers — Member
   </div>
 
-  <!-- ON Campus Involvement Carousel -->
+  <!-- NEW MATCHING EXPERIENCE-STYLE CAROUSEL -->
   <div style="display:flex; align-items:center; gap:12px; margin-top:8px;">
     <button class="pill" id="onCampusPrev">◀</button>
 
-    <div style="overflow:hidden; width:150px; height:100px;">
-      <div id="onCampusInner" style="display:flex; transition:0.5s ease;">
-        <img src="port.icons/IMG956686.jpg" style="width:150px; height:100px; object-fit:cover; flex-shrink:0;">
-        <img src="port.icons/IMG_6915.jpg" style="width:150px; height:100px; object-fit:cover; flex-shrink:0;">
-        <img src="port.icons/IMG_7463.jpg" style="width:150px; height:100px; object-fit:cover; flex-shrink:0;">
-        <img src="port.icons/IMG_8568 2.jpg" style="width:150px; height:100px; object-fit:cover; flex-shrink:0;">
-        <img src="port.icons/IMG_9920.JPG" style="width:150px; height:100px; object-fit:cover; flex-shrink:0;">
-        <img src="port.icons/IMG_1985 (1).jpg" style="width:150px; height:100px; object-fit:cover; flex-shrink:0;">
-        <img src="port.icons/IMG_2568.jpg" style="width:150px; height:100px; object-fit:cover; flex-shrink:0;">
-        <img src="port.icons/IMG_3443.jpg" style="width:150px; height:100px; object-fit:cover; flex-shrink:0;">
-      </div>
+    <div style="width:150px; height:100px; position:relative; overflow:hidden;">
+      <img src="port.icons/IMG956686.jpg" class="onCampusImg" style="width:150px; height:100px; object-fit:cover;">
+      <img src="port.icons/IMG_6915.jpg" class="onCampusImg" style="display:none; width:150px; height:100px; object-fit:cover;">
+      <img src="port.icons/IMG_7463.jpg" class="onCampusImg" style="display:none; width:150px; height:100px; object-fit:cover;">
+      <img src="port.icons/IMG_8568 2.jpg" class="onCampusImg" style="display:none; width:150px; height:100px; object-fit:cover;">
+      <img src="port.icons/IMG_9920.JPG" class="onCampusImg" style="display:none; width:150px; height:100px; object-fit:cover;">
+      <img src="port.icons/IMG_1985 (1).jpg" class="onCampusImg" style="display:none; width:150px; height:100px; object-fit:cover;">
+      <img src="port.icons/IMG_2568.jpg" class="onCampusImg" style="display:none; width:150px; height:100px; object-fit:cover;">
+      <img src="port.icons/IMG_3443.jpg" class="onCampusImg" style="display:none; width:150px; height:100px; object-fit:cover;">
     </div>
 
     <button class="pill" id="onCampusNext">▶</button>
   </div>
 </div>
 
+    <!-- SERVICE -->
+    <div class="edu-card">
+      <h2 style="font-family:var(--pixel); color:var(--hot-pink); margin:0 0 16px 0;">Service & Community Involvement</h2>
 
-<!-- SERVICE & COMMUNITY INVOLVEMENT -->
-<div class="edu-card" style="max-width:1100px; margin-top:24px;">
-  <h2 style="font-family:var(--pixel); color:var(--hot-pink); margin:0 0 16px 0;">
-    Service & Community Involvement
-  </h2>
+      <strong>Founder: Howard University’s Annual Meals & Service Initiative (2022–2025)</strong>
+      <p style="font-size:14px; color:var(--text); margin:6px 0 12px 0;">
+        Raised over $1k, served 2k+ people in the DMV area through meal distribution and community outreach.
+      </p>
 
-  <!-- Service Item 1 -->
-  <div style="margin-bottom:28px;">
-    <strong>Founder: Howard University’s Annual Meals & Service Initiative (2022-2025)</strong>
-    <p style="font-size:14px; color:var(--text); margin:6px 0 12px 0;">
-       Raised over $1k, served 2k+ people in the DMV area through meal distribution and community outreach.
-    </p>
-    
-  </div>
-
-  
-  
-    <strong>Center of Praise Ministries Volunteer</strong>
-    <p style="font-size:14px; color:var(--text); margin:6px 0 12px 0;">
-      Volunteer & supporting church's outreach initiatives.
-    </p>
-    
-      </div>
+      <strong>Center of Praise Ministries Volunteer</strong>
+      <p style="font-size:14px; color:var(--text); margin:6px 0 12px 0;">
+        Volunteer & supporting church outreach initiatives.
+      </p>
     </div>
-  </div>
 
-  
-      </div>
-    </div>
   </div>
-</div>
-
 </section>
 
-<script>
-function initLoopingCarousel(innerId, prevId, nextId) {
-  const inner = document.getElementById(innerId);
-  const prevBtn = document.getElementById(prevId);
-  const nextBtn = document.getElementById(nextId);
 
-  const images = inner.querySelectorAll("img");
-  const total = images.length;
-
+<script>/* ON-CAMPUS INVOLVEMENT — MATCH EXPERIENCE CAROUSEL */
+(function () {
   let index = 0;
+  const imgs = document.querySelectorAll(".onCampusImg");
+  const total = imgs.length;
 
   function update() {
-    const width = images[0].clientWidth;
-    inner.style.transform = `translateX(-${index * width}px)`;
+    imgs.forEach((img, i) => {
+      img.style.display = (i === index) ? "block" : "none";
+    });
   }
 
-  nextBtn.addEventListener("click", () => {
-    index = (index + 1) % total; // loops forward
+  document.getElementById("onCampusPrev").onclick = () => {
+    index = (index - 1 + total) % total;
     update();
-  });
+  };
 
-  prevBtn.addEventListener("click", () => {
-    index = (index - 1 + total) % total; // loops backward
+  document.getElementById("onCampusNext").onclick = () => {
+    index = (index + 1) % total;
     update();
-  });
-
-  window.addEventListener("resize", update);
+  };
 
   update();
-}
+})();
 
-// ON-CAMPUS CAROUSEL
-initLoopingCarousel("onCampusInner", "onCampusPrev", "onCampusNext");
-initLoopingCarousel("service1Inner", "service1Prev", "service1Next");
-initLoopingCarousel("service2Inner", "service2Prev", "service2Next");
 </script>
-
+</section>
 
 <!-- EXPERIENCE SECTION -->
 <section id="experience" class="screen" role="region" aria-label="Experience">
@@ -983,6 +959,126 @@ document.querySelectorAll('.exp-carousel').forEach((carousel) => {
     box-shadow: 0 0 12px rgba(255,0,150,0.25);
     cursor: pointer;
   }
+
+
+/* ------------------------------------------------------ */
+/* 🌸 LIGHT MODE FIXES — CONTACT FORM + POPUP */
+/* ------------------------------------------------------ */
+
+/* CONTAINER */
+html[data-theme="light"] .inquiry-section {
+  background: rgba(255, 182, 193, 0.15);
+  border: 2px dashed rgba(255, 105, 180, 0.6);
+  box-shadow: 0 0 15px rgba(255, 105, 180, 0.25);
+}
+
+/* HEADER TEXT */
+html[data-theme="light"] .inquiry-section h3 {
+  color: #ff1493;
+  text-shadow: none;
+}
+
+/* BODY TEXT */
+html[data-theme="light"] .inquiry-section p {
+  color: #1b1120;
+  opacity: 0.9;
+}
+
+/* INPUT FIELDS */
+html[data-theme="light"] #contactForm input,
+html[data-theme="light"] #contactForm textarea {
+  background: rgba(255, 255, 255, 0.95);
+  color: #1b1120;
+  border: 2px solid rgba(0, 0, 0, 0.15);
+}
+
+/* PLACEHOLDER */
+html[data-theme="light"] #contactForm input::placeholder,
+html[data-theme="light"] #contactForm textarea::placeholder {
+  color: #6b5a68;
+}
+
+/* FOCUS STATE */
+html[data-theme="light"] #contactForm input:focus,
+html[data-theme="light"] #contactForm textarea:focus {
+  border-color: #ff4aa0;
+  box-shadow: 0 0 10px rgba(255, 105, 180, 0.4);
+}
+
+/* BUTTON */
+html[data-theme="light"] #contactForm button {
+  background: linear-gradient(90deg, #ff4fae, #ff1493);
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(255, 105, 180, 0.25);
+}
+
+/* BUTTON HOVER */
+html[data-theme="light"] #contactForm button:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 16px rgba(255, 105, 180, 0.45);
+}
+
+/* ------------------------------------------------------ */
+/* 🌸 POPUP FIXES — LIGHT MODE */
+/* ------------------------------------------------------ */
+
+html[data-theme="light"] .popup {
+  background: rgba(255, 192, 203, 0.4);
+  backdrop-filter: blur(6px);
+}
+
+html[data-theme="light"] .popup-content {
+  background: rgba(255, 255, 255, 0.92);
+  border: 2px solid #ff4fae;
+  box-shadow: 0 0 22px rgba(255, 105, 180, 0.35);
+  color: #1b1120;
+}
+
+html[data-theme="light"] .popup-content p {
+  color: #1b1120;
+  font-weight: 700;
+}
+
+html[data-theme="light"] .popup-content button {
+  background: linear-gradient(90deg, #ff4fae, #ff1493);
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 0 12px rgba(255, 105, 180, 0.35);
+}
+
+html[data-theme="light"] .popup-content button:hover {
+  background: #ff1493;
+  box-shadow: 0 0 16px rgba(255, 105, 180, 0.45);
+  transform: scale(1.06);
+}
+
+/* ------------------------------------------------------ */
+/* 🌙 DARK MODE — MAKE CERTIFICATION BADGES BRIGHTER */
+/* ------------------------------------------------------ */
+html[data-theme="dark"] .cert-badges img {
+  filter: brightness(1.3) contrast(1.15) drop-shadow(0 0 12px rgba(255, 0, 150, 0.18));
+}
+
+/* ------------------------------------------------------ */
+/* ☀️ LIGHT MODE — KEEP BADGES NATURAL */
+/* ------------------------------------------------------ */
+html[data-theme="light"] .cert-badges img {
+  filter: brightness(1) contrast(1) drop-shadow(0 0 6px rgba(0,0,0,0.08));
+}
+
+
+/* ------------------------------------------------------ */
+/* 🎮 DARK MODE FIX — UNITY BADGE VISIBILITY */
+/* ------------------------------------------------------ */
+html[data-theme="dark"] .cert-badges img[src*="unity"] {
+  filter: brightness(1.8) contrast(1.25) saturate(1.2)
+          drop-shadow(0 0 14px rgba(0, 255, 180, 0.25));
+}
+
+/* For light mode (keep normal) */
+html[data-theme="light"] .cert-badges img[src*="unity"] {
+  filter: brightness(1) contrast(1) saturate(1);
+}
 </style>
 
 
@@ -1042,21 +1138,37 @@ themeBtn.addEventListener('click', ()=> { theme = theme === 'dark' ? 'light' : '
 applyTheme(theme);
 
 /* ============ CURSOR & SPARKLES ============ */
-document.documentElement.style.cursor = 'none';
-window.addEventListener('mousemove', e => {
-  cursorEl.style.left = e.clientX + 'px';
-  cursorEl.style.top = e.clientY + 'px';
-  // create small sparkle randomly
-  if(Math.random() < 0.15){
-    const sp = document.createElement('div');
-    sp.className = 'sparkle';
+/* ============ CUSTOM CROWN CURSOR ONLY ============ */
+
+/* hide normal cursor everywhere */
+document.documentElement.style.cursor = "none";
+document.body.style.cursor = "none";
+
+/* make ALL elements hide cursor (buttons, inputs, links, etc) */
+document.querySelectorAll("*").forEach(el => {
+  el.style.cursor = "none";
+});
+
+window.addEventListener("mousemove", (e) => {
+  cursorEl.style.left = e.clientX + "px";
+  cursorEl.style.top = e.clientY + "px";
+
+  // sparkle effect
+  if (Math.random() < 0.15) {
+    const sp = document.createElement("div");
+    sp.className = "sparkle";
+    sp.style.left = e.clientX + (Math.random() * 20 - 10) + "px";
+    sp.style.top = e.clientY + (Math.random() * 20 - 10) + "px";
     document.body.appendChild(sp);
-    sp.style.left = (e.clientX + (Math.random()*20-10)) + 'px';
-    sp.style.top = (e.clientY + (Math.random()*20-10)) + 'px';
-    setTimeout(()=> sp.remove(), 800);
+    setTimeout(() => sp.remove(), 800);
   }
 });
-window.addEventListener('touchstart', ()=> { document.documentElement.style.cursor = 'auto'; cursorEl.style.display='none'; });
+
+/* for touch devices only */
+window.addEventListener("touchstart", () => {
+  cursorEl.style.display = "none";
+});
+
 
 /* ============ SFX USING WebAudio ============ */
 let audioCtx = null;
