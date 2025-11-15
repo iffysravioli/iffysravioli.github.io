@@ -524,6 +524,11 @@ initLoopingCarousel("service2Inner", "service2Prev", "service2Next");
                  style="display:none; width:150px; height:100px; object-fit:cover;">
             <img src="port.icons/IMG_3992.jpg" class="exp-img"
                  style="display:none; width:150px; height:100px; object-fit:cover;">
+            <img src="port.icons/IMG_1985 (1).jpg" class="exp-img"
+                 style="display:none; width:150px; height:100px; object-fit:cover;">
+            <img src="port.icons/IMG_2568.jpg" class="exp-img"
+                 style="display:none; width:150px; height:100px; object-fit:cover;">
+
             <button class="pill exp-next">▶</button>
           </div>
         </div>
@@ -551,10 +556,10 @@ initLoopingCarousel("service2Inner", "service2Prev", "service2Next");
               <img src="port.icons/safewaylogo (1).png" style="height:50px; width: 50px;" alt="Safeway">
             </a>
             <a href="https://www.instagram.com/p/CgAuxYzJZA7/">
-              <img src="port.icons/handshakelogo.png" style="height:50px;"alt="Handshake">
+              <img src="port.icons/handshakelogo.png" style="height:50px; width: 50px;"alt="Handshake">
             </a>
             <a href="https://www.instagram.com/p/CoH1I6BArKk/">
-              <img src="port.icons/aerologo.png" style="height:50px;" alt="Aeropostale">
+              <img src="port.icons/aerologo.png" style="height:50px; width: 50px;" alt="Aeropostale">
             </a>
           </div>
 
@@ -586,9 +591,10 @@ initLoopingCarousel("service2Inner", "service2Prev", "service2Next");
           </ul>
           <div class="exp-carousel" data-exp="0" style="display:flex; align-items:center; gap:8px; margin-top:8px;">
             <button class="pill exp-prev">◀</button>
-            <img src="port.icons/IMG_5673.jpg" alt="abbvie 1" class="exp-img" style="width:150px; height:100px; object-fit:cover;">
-            <img src="port.icons/IMG_5355.jpg" alt="abbvie 2" class="exp-img" style="display:none; width:150px; height:100px; object-fit:cover;">
-            <img src="port.icons/IMG_3992.jpg" alt="abbvie 3" class="exp-img" style="display:none; width:150px; height:100px; object-fit:cover;">
+            <img src="port.icons/IMG_8568 2.jpg" alt="rc 1" class="exp-img" style="width:150px; height:100px; object-fit:cover;">
+            <img src="rc.html" alt="rc 2" class="exp-img" style="display:none; width:150px; height:100px; object-fit:cover;">
+            <img src="rc.html" alt="rc 3" class="exp-img" style="display:none; width:150px; height:100px; object-fit:cover;">
+            
             <button class="pill exp-next">▶</button>
           </div>
         </div>
@@ -685,6 +691,36 @@ initLoopingCarousel("service2Inner", "service2Prev", "service2Next");
           </div>
         </div>
       </div>
+
+<script>
+// EVENT & MARKETING CAROUSELS — LOOP + SLIDE
+document.querySelectorAll('.exp-carousel').forEach((carousel) => {
+  let index = 0;
+  const imgs = carousel.querySelectorAll('.exp-img');
+  const prev = carousel.querySelector('.exp-prev');
+  const next = carousel.querySelector('.exp-next');
+  const total = imgs.length;
+
+  function update() {
+    imgs.forEach((img, i) => {
+      img.style.display = (i === index) ? 'block' : 'none';
+    });
+  }
+
+  prev.addEventListener('click', () => {
+    index = (index - 1 + total) % total; // loop backward
+    update();
+  });
+
+  next.addEventListener('click', () => {
+    index = (index + 1) % total; // loop forward
+    update();
+  });
+
+  update(); // show first image
+});
+</script>
+
     
     <!-- Sponsors -->
     <h3 style="font-family:var(--pixel); margin-top:2rem; font-size:1.3rem; color:var(--hot-pink);">
