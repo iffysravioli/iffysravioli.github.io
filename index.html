@@ -364,168 +364,204 @@
       </p>
     </div>
 
-    <!-- ON-CAMPUS INVOLVEMENT -->
-    <div class="edu-card" style="max-width:1100px;">
-      <h2 style="font-family:var(--pixel); color:var(--hot-pink); margin:0 0 8px 0;">On-Campus Involvement</h2>
-      <div style="display:flex; flex-direction:column; gap:6px; font-size:14px; color:var(--text)">
-        Howard University Royal Court — Miss College Of Engineering & Architecture<br>
-        Howard University’s College Of Engineering & Architecture Student Council Treasurer + Programs Director<br>
-        Howard University's College Hall South Dorm Council — Vice President<br>
-        Phi Sigma Rho — Social Chair / PR Chair / Rush Chair<br>
-        Society of Women Engineers — Social Chair<br>
-        Girls Who Code — Member & Brand Ambassador<br>
-        National Society of Black Engineers — Member
-      </div>
-      
+   <!-- ON-CAMPUS INVOLVEMENT -->
+<div class="edu-card" style="max-width:1100px; margin-top:24px;">
+  <h2 style="font-family:var(--pixel); color:var(--hot-pink); margin:0 0 12px 0;">
+    On-Campus Involvement
+  </h2>
 
-      <!-- On-Campus Carousel with Buttons -->
-      <div style="position:relative; margin-top:12px; overflow:hidden; width:100%; max-width:600px;">
-        <div class="carousel-inner" id="onCampusInner" style="display:flex; transition:0.5s;">
-          <img src="port.icons/IMG956686.jpg" alt="Campus 1" style="width:50%; flex-shrink:0; border-radius:6px;">
-          <img src="port.icons/IMG_6915.jpg" alt="Campus 2" style="width:50%; flex-shrink:0; border-radius:6px;">
-          <img src="port.icons/IMG_7463.jpg" alt="Campus 3" style="width:50%; flex-shrink:0; border-radius:6px;">
-          <img src="port.icons/IMG_8568 2.jpg" alt="Campus 4" style="width:50%; flex-shrink:0; border-radius:6px;">
-          <img src="port.icons/IMG_9920.JPG" alt="Campus 5" style="width:50%; flex-shrink:0; border-radius:6px;">
-        </div>
-
-        <div class="carousel-controls" style="display:flex; justify-content:space-between; margin-top:6px;">
-          <button class="pill" id="onCampusPrev">Prev</button>
-          <button class="pill" id="onCampusNext">Next</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- SERVICE & COMMUNITY INVOLVEMENT -->
-    <div class="edu-card" style="max-width:1100px;">
-      <h2 style="font-family:var(--pixel); color:var(--hot-pink); margin:0 0 12px 0;">Service & Community Involvement 🌟</h2>
-
-      <!-- Service Item 1 -->
-      <div class="service-item" style="margin-bottom:24px;">
-        <strong>Founder: Howard University’s Annual Meals & Service Initiative — 3rd Annual Drive</strong>
-        <p>Raised over $340, served 200+ people, and donated to the Coalition for the Homeless.</p>
-
-        <!-- Image carousel for this service -->
-        <div style="position:relative; overflow:hidden; width:100%; max-width:600px;">
-          <div class="carousel-inner" id="service1Inner" style="display:flex; transition:0.5s;">
-            <img src="port.icons/meals-service1.png" alt="Meals & Service 1" style="width:100%; flex-shrink:0; border-radius:8px;">
-            <img src="port.icons/meals-service2.png" alt="Meals & Service 2" style="width:100%; flex-shrink:0; border-radius:8px;">
-            <img src="port.icons/meals-service3.png" alt="Meals & Service 3" style="width:100%; flex-shrink:0; border-radius:8px;">
-          </div>
-          <div class="carousel-controls" style="display:flex; justify-content:space-between; margin-top:6px;">
-            <button class="pill" id="service1Prev">Prev</button>
-            <button class="pill" id="service1Next">Next</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Service Item 2 -->
-      <div class="service-item" style="margin-bottom:24px;">
-        <strong>Center of Praise Ministries Volunteer</strong>
-        <p>Participated in community service activities supporting local initiatives and events.</p>
-
-        <div style="position:relative; overflow:hidden; width:100%; max-width:600px;">
-          <div class="carousel-inner" id="service2Inner" style="display:flex; transition:0.5s;">
-            <img src="port.icons/center-of-praise1.png" alt="Center of Praise 1" style="width:100%; flex-shrink:0; border-radius:8px;">
-            <img src="port.icons/center-of-praise2.png" alt="Center of Praise 2" style="width:100%; flex-shrink:0; border-radius:8px;">
-          </div>
-          <div class="carousel-controls" style="display:flex; justify-content:space-between; margin-top:6px;">
-            <button class="pill" id="service2Prev">Prev</button>
-            <button class="pill" id="service2Next">Next</button>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
+  <div style="font-size:14px; color:var(--text); line-height:1.5; margin-bottom:16px;">
+    Howard University Royal Court — Miss College Of Engineering & Architecture<br>
+    Howard University’s College Of Engineering & Architecture Student Council Treasurer + Programs Director<br>
+    Howard University's College Hall South Dorm Council — Vice President<br>
+    Phi Sigma Rho — Social Chair / PR Chair / Rush Chair<br>
+    Society of Women Engineers — Social Chair<br>
+    Girls Who Code — Member & Brand Ambassador<br>
+    National Society of Black Engineers — Member
   </div>
+
+  <!-- AbbVie-size Carousel -->
+  <div style="display:flex; align-items:center; gap:12px; margin-top:8px;">
+    <button class="pill" id="onCampusPrev">◀</button>
+
+    <div style="overflow:hidden; width:150px; height:100px;">
+      <div id="onCampusInner" style="display:flex; transition:0.5s ease;">
+        <img src="port.icons/IMG956686.jpg" style="width:150px; height:100px; object-fit:cover; flex-shrink:0;">
+        <img src="port.icons/IMG_6915.jpg" style="width:150px; height:100px; object-fit:cover; flex-shrink:0;">
+        <img src="port.icons/IMG_7463.jpg" style="width:150px; height:100px; object-fit:cover; flex-shrink:0;">
+        <img src="port.icons/IMG_8568 2.jpg" style="width:150px; height:100px; object-fit:cover; flex-shrink:0;">
+        <img src="port.icons/IMG_9920.JPG" style="width:150px; height:100px; object-fit:cover; flex-shrink:0;">
+      </div>
+    </div>
+
+    <button class="pill" id="onCampusNext">▶</button>
+  </div>
+</div>
+
+
+<!-- SERVICE & COMMUNITY INVOLVEMENT -->
+<div class="edu-card" style="max-width:1100px; margin-top:24px;">
+  <h2 style="font-family:var(--pixel); color:var(--hot-pink); margin:0 0 16px 0;">
+    Service & Community Involvement
+  </h2>
+
+  <!-- Service Item 1 -->
+  <div style="margin-bottom:28px;">
+    <strong>Founder: Howard University’s Annual Meals & Service Initiative (2022-2025)</strong>
+    <p style="font-size:14px; color:var(--text); margin:6px 0 12px 0;">
+      Year 3: Raised over $340, served 200+ people, and donated to the Coalition for the Homeless.
+    </p>
+
+    <div style="overflow:hidden; width:100%; max-width:600px; margin-top:8px;">
+      <div class="carousel-inner" id="service1Inner" style="display:flex; transition:0.5s;">
+        <img src="port.icons/meals-service1.png" style="width:100%; flex-shrink:0; border-radius:8px;">
+        <img src="port.icons/meals-service2.png" style="width:100%; flex-shrink:0; border-radius:8px;">
+        <img src="port.icons/meals-service3.png" style="width:100%; flex-shrink:0; border-radius:8px;">
+      </div>
+
+      <div style="display:flex; justify-content:space-between; margin-top:8px;">
+        <button class="pill" id="service1Prev">Prev</button>
+        <button class="pill" id="service1Next">Next</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Service Item 2 -->
+  <div style="margin-bottom:12px;">
+    <strong>Center of Praise Ministries Volunteer</strong>
+    <p style="font-size:14px; color:var(--text); margin:6px 0 12px 0;">
+      Volunteer & supporting church's outreach initiatives.
+    </p>
+
+    <div style="overflow:hidden; width:100%; max-width:600px; margin-top:8px;">
+      <div class="carousel-inner" id="service2Inner" style="display:flex; transition:0.5s;">
+        <img src="port.icons/center-of-praise1.png" style="width:100%; flex-shrink:0; border-radius:8px;">
+        <img src="port.icons/center-of-praise2.png" style="width:100%; flex-shrink:0; border-radius:8px;">
+      </div>
+
+      <div style="display:flex; justify-content:space-between; margin-top:8px;">
+        <button class="pill" id="service2Prev">Prev</button>
+        <button class="pill" id="service2Next">Next</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 </section>
 
-<!-- JS for On-Campus & Service Carousels -->
 <script>
-function initCarousel(innerId, prevId, nextId) {
+function initLoopingCarousel(innerId, prevId, nextId) {
   const inner = document.getElementById(innerId);
-  const prev = document.getElementById(prevId);
-  const next = document.getElementById(nextId);
+  const prevBtn = document.getElementById(prevId);
+  const nextBtn = document.getElementById(nextId);
+
+  const images = inner.querySelectorAll("img");
+  const total = images.length;
+
   let index = 0;
-  const total = inner.querySelectorAll('img').length;
 
   function update() {
-    const width = inner.querySelector('img').clientWidth;
+    const width = images[0].clientWidth;
     inner.style.transform = `translateX(-${index * width}px)`;
   }
 
-  prev.addEventListener('click', () => {
-    if (index > 0) index--;
+  nextBtn.addEventListener("click", () => {
+    index = (index + 1) % total; // loops forward
     update();
   });
 
-  next.addEventListener('click', () => {
-    if (index < total - 1) index++;
+  prevBtn.addEventListener("click", () => {
+    index = (index - 1 + total) % total; // loops backward
     update();
   });
+
+  window.addEventListener("resize", update);
+
+  update();
 }
 
-// On-Campus Carousel
-initCarousel('onCampusInner', 'onCampusPrev', 'onCampusNext');
-// Service Carousels
-initCarousel('service1Inner', 'service1Prev', 'service1Next');
-initCarousel('service2Inner', 'service2Prev', 'service2Next');
+// ON-CAMPUS CAROUSEL
+initLoopingCarousel("onCampusInner", "onCampusPrev", "onCampusNext");
+initLoopingCarousel("service1Inner", "service1Prev", "service1Next");
+initLoopingCarousel("service2Inner", "service2Prev", "service2Next");
 </script>
 
-<!-- EXPERIENCE -->
+
 <!-- EXPERIENCE SECTION -->
 <section id="experience" class="screen" role="region" aria-label="Experience">
   <div style="max-width:1200px; margin:0 auto;">
-    <h2 style="font-family:var(--pixel); color:var(--hot-pink); margin-bottom:12px;">Experience</h2>
-    <div class="exp-list" id="expList">
+    <h2 style="font-family:var(--pixel); color:var(--hot-pink); margin-bottom:12px;">
+      Experience
+    </h2>
 
-      <!-- Card 1: AbbVie -->
-      <div class="exp-card" data-card-index="0" style="display:flex; gap:16px; margin-bottom:24px;">
+    <!-- Unified Card Layout -->
+    <div class="exp-list" id="expList" style="display:flex; flex-direction:column; gap:24px;">
+
+      <!-- CARD 1: AbbVie -->
+      <div class="exp-card" style="display:flex; gap:16px;">
         <div>
-          <img src="port.icons/abbvielogo.jpeg" alt="AbbVie Logo" style="width:80px; height:80px; object-fit:contain;">
+          <img src="port.icons/abbvielogo.jpeg" alt="AbbVie Logo"
+               style="width:80px; height:80px; object-fit:contain;">
         </div>
+
         <div class="exp-info">
-          <div style="font-weight:800">AbbVie — R&D Portfolio Program Management Intern (Summer 2024)</div>
-          <div style="margin-top:6px; color:var(--lav)">Chicago, IL</div>
-          <p style="margin-top:8px; font-size:14px; color:var(--text)">
-            Led & developed initiatives to tidy backend data (data responsibility matrix) and remove redundant fields aimed at improving user experience and streamlining data. Cross-collaborated with teams to deliver insights and recommendations to stakeholders.
-          </p>
-          <div class="exp-carousel" data-exp="0" style="display:flex; align-items:center; gap:8px; margin-top:8px;">
+          <div style="font-weight:800;">
+            AbbVie — R&D Portfolio Program Management Intern
+          </div>
+          <div style="margin-top:6px; color:var(--lav);">Summer 2024 · Chicago, IL</div>
+
+          <ul style="margin-top:8px; font-size:14px; color:var(--text); padding-left:20px;">
+            <li>Led & developed initiatives to tidy backend data (data responsibility matrix) and remove redundant fields aimed at improving user experience and streamlining data. Cross-collaborated with teams to deliver insights and recommendations to stakeholders.</li>
+          </ul>
+
+          <!-- Carousel -->
+          <div class="exp-carousel" data-exp="0"
+               style="display:flex; align-items:center; gap:8px; margin-top:8px;">
             <button class="pill exp-prev">◀</button>
-            <img src="port.icons/IMG_5673.jpg" alt="abbvie 1" class="exp-img" style="width:150px; height:100px; object-fit:cover;">
-            <img src="port.icons/IMG_5355.jpg" alt="abbvie 2" class="exp-img" style="display:none; width:150px; height:100px; object-fit:cover;">
-            <img src="port.icons/IMG_3992.jpg" alt="abbvie 3" class="exp-img" style="display:none; width:150px; height:100px; object-fit:cover;">
+            <img src="port.icons/IMG_5673.jpg" class="exp-img"
+                 style="width:150px; height:100px; object-fit:cover;">
+            <img src="port.icons/IMG_5355.jpg" class="exp-img"
+                 style="display:none; width:150px; height:100px; object-fit:cover;">
+            <img src="port.icons/IMG_3992.jpg" class="exp-img"
+                 style="display:none; width:150px; height:100px; object-fit:cover;">
             <button class="pill exp-next">▶</button>
           </div>
         </div>
       </div>
 
-      <!-- Card 2: Intern Queen -->
-      <div class="exp-card" data-card-index="1" style="display:flex; gap:16px; margin-bottom:24px;">
+      <!-- CARD 2: Intern Queen -->
+      <div class="exp-card" style="display:flex; gap:16px;">
         <div>
-          <img src="port.icons/iqlogo.jpeg" alt="Intern Queen Logo" style="width:80px; height:80px; object-fit:contain;">
+          <img src="port.icons/iqlogo.jpeg" alt="Intern Queen Logo"
+               style="width:80px; height:80px; object-fit:contain;">
         </div>
+
         <div class="exp-info">
-          <div style="font-weight:800">Intern Queen — Brand Ambassador (Remote)</div>
-          <div style="margin-top:6px; color:var(--lav)">Remote — Aug 2021–Present</div>
-          <p style="margin-top:8px; font-size:14px; color:var(--text)">
-            Executed branded digital campaigns for Handshake, Aeropostale, and Safeway, generating 20,000+ impressions and providing performance insights to internal teams.
-          </p>
-          <div style="display:flex; flex-wrap:wrap; gap:1rem; margin-top:.5rem; align-items:center;"></div>
-            <a href="https://www.instagram.com/p/DDhrD1GRPIa/" style="height: 50px;">
-            <img src="safeway.html" alt="Safeway">
-          </a>
-          <a href="https://www.instagram.com/p/CgAuxYzJZA7/" style="height: 50px;">
-            <img src="handshake.html" alt="Handshake">
-          </a>
-          <a href="https://www.instagram.com/p/CoH1I6BArKk/" style="height: 50px;">
-            <img src="aeropostale.html" alt="Aeropostale">
-          </a>
+          <div style="font-weight:800;">
+            Intern Queen — Brand Ambassador
+          </div>
+          <div style="margin-top:6px; color:var(--lav);">Remote · Aug 2021–Present</div>
+
+          <ul style="margin-top:8px; font-size:14px; color:var(--text); padding-left:20px;">
+            <li>Executed branded digital campaigns for brands such as Handshake, Aeropostale, and Safeway, generating 20,000+ impressions and providing performance insights to internal teams.</li>
+          </ul>
+
+          <div style="display:flex; gap:12px; margin-top:8px;">
+            <a href="https://www.instagram.com/p/DDhrD1GRPIa/">
+              <img src="safeway.html" style="height:50px;" alt="Safeway">
+            </a>
+            <a href="https://www.instagram.com/p/CgAuxYzJZA7/">
+              <img src="handshake.html" style="height:50px;" alt="Handshake">
+            </a>
+            <a href="https://www.instagram.com/p/CoH1I6BArKk/">
+              <img src="aeropostale.html" style="height:50px;" alt="Aeropostale">
+            </a>
+          </div>
+
         </div>
       </div>
 
-    </div>
-  </div>
+
 <!-- EVENTS & MARKETING SECTION -->
 <section id="events-marketing" aria-label="Events & Marketing">
   <div style="max-width:1200px; margin:0 auto; flex-direction:column; display:flex; gap:24px;">
@@ -536,11 +572,9 @@ initCarousel('service2Inner', 'service2Prev', 'service2Next');
     </p>
 
     <!-- Event Cards -->
-
-
     <div class="exp-card" data-card-index="0" style="display:flex; gap:16px; margin-bottom:24px;">
         <div>
-          <img src="port.icons/abbvielogo.jpeg" alt="AbbVie Logo" style="width:80px; height:80px; object-fit:contain;">
+          <img src="port.icons/rc logo.jpeg" alt="Royal Court Logo" style="width:80px; height:80px; object-fit:contain;">
         </div>
         <div class="exp-info">
           <div style="font-weight:800">Howard University’s Miss College of Engineering & Architecture</div>
@@ -618,6 +652,29 @@ initCarousel('service2Inner', 'service2Prev', 'service2Next');
             <li>  Advocated for student needs through inclusive programming and leadership that fostered a welcoming, safe environment.</li>
             <li>  Established lasting traditions to strengthen community and belonging within residence halls.</li>
             <li>  Oversaw event planning, promotions, and social media outreach to boost resident participation.</li>
+          </ul>
+          <div class="exp-carousel" data-exp="0" style="display:flex; align-items:center; gap:8px; margin-top:8px;">
+            <button class="pill exp-prev">◀</button>
+            <img src="port.icons/IMG_5673.jpg" alt="abbvie 1" class="exp-img" style="width:150px; height:100px; object-fit:cover;">
+            <img src="port.icons/IMG_5355.jpg" alt="abbvie 2" class="exp-img" style="display:none; width:150px; height:100px; object-fit:cover;">
+            <img src="port.icons/IMG_3992.jpg" alt="abbvie 3" class="exp-img" style="display:none; width:150px; height:100px; object-fit:cover;">
+            <button class="pill exp-next">▶</button>
+          </div>
+        </div>
+      </div>
+
+
+    <div class="exp-card" data-card-index="0" style="display:flex; gap:16px; margin-bottom:24px;">
+        <div>
+          <img src="port.icons/abbvielogo.jpeg" alt="AbbVie Logo" style="width:80px; height:80px; object-fit:contain;">
+        </div>
+        <div class="exp-info">
+          <div style="font-weight:800">Girls Who Code's Brand Ambassador</div>
+          <div style="margin-top:6px; color:var(--lav)">2024-2025</div>
+          <ul style="margin-top:8px; font-size:14px; color:var(--text); padding-left:20px;">
+            <li> Planned and hosted Fore the Girls, a meetup during AfroTech, overseeing venue logistics, guest experience, and event flow at Puttshack Houston.</li>
+            <li> Led the creative direction and branding, designing marketing assets and social content to attract attendees and create a fun, inclusive atmosphere for the AfroTech community.</li>
+            <li> Facilitated networking and community-building through interactive activities, ensuring guests connected, felt welcomed, and left with meaningful new relationships.</li>
           </ul>
           <div class="exp-carousel" data-exp="0" style="display:flex; align-items:center; gap:8px; margin-top:8px;">
             <button class="pill exp-prev">◀</button>
