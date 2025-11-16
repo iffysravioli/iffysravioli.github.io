@@ -263,6 +263,62 @@
     header{ padding:10px 12px; }
     nav.topnav{ gap:8px; font-size:11px; }
   }
+
+/* ========== MOBILE MENU ========== */
+.mobile-menu-btn {
+  display: none;
+  font-family: var(--pixel);
+  font-size: 22px;
+  color: var(--hot-pink);
+  background: transparent;
+  border: none;
+  cursor: none;
+  padding: 4px 8px;
+}
+
+.mobile-nav {
+  display: none;
+  pointer-events: none; /* FIX: prevent blocking taps */
+  position: absolute;
+  top: 76px;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--cardBorder);
+  flex-direction: column;
+  padding: 12px 0;
+  z-index: 9999;
+}
+
+.mobile-nav a {
+  font-family: var(--pixel);
+  color: var(--hot-pink);
+  padding: 14px 0;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.mobile-nav a:hover {
+  background: rgba(255,255,255,0.08);
+  color: var(--lav);
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 850px) {
+  nav.topnav {
+    display: none;
+  }
+  .mobile-menu-btn {
+    display: block;
+  }
+}
+
 </style>
 </head>
 <body data-theme="dark">
@@ -271,6 +327,17 @@
   <div class="brand">
     <div class="logo-glitter" aria-hidden="true">Ifetayo's Portfolio</div>
   </div>
+<!-- MOBILE MENU BUTTON -->
+<button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Open Menu">☰</button>
+
+<!-- MOBILE DROPDOWN MENU -->
+<nav id="mobileMenu" class="mobile-nav">
+  <a href="#" data-screen="home">Home</a>
+  <a href="#" data-screen="education">Education</a>
+  <a href="#" data-screen="experience">Experience</a>
+  <a href="#" data-screen="projects">Projects</a>
+  <a href="#" data-screen="awards">Awards</a>
+</nav>
 
   <div style="display:flex; align-items:center; gap:16px;">
     <nav class="topnav" role="navigation" aria-label="Main navigation">
@@ -1099,6 +1166,43 @@ const screens = document.querySelectorAll('.screen');
 const header = document.getElementById('siteHeader');
 const cursorEl = document.getElementById('cursor');
 let currentScreen = 'home';
+
+/* ===== MOBILE MENU LOGIC ===== */
+const mobileBtn = document.getElementById("mobileMenuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+
+/* ===== MOBILE MENU LOGIC (FIXED) ===== */
+mobileBtn.addEventListener("click", () => {
+  const open = mobileMenu.style.display === "flex";
+
+  if (open) {
+    mobileMenu.style.display = "none";
+    mobileMenu.style.pointerEvents = "none"; // stops blocking taps
+  } else {
+    mobileMenu.style.display = "flex";
+    mobileMenu.style.pointerEvents = "auto"; // allow clicking
+    mobileMenu.style.animation = "slideDown .25s var(--ease)";
+  }
+
+  sfxClick();
+});
+
+/* close menu when clicking a link */
+mobileMenu.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    mobileMenu.style.display = "none";
+    mobileMenu.style.pointerEvents = "none"; // stop blocking screen
+  });
+});
+/* ===== MOBILE MENU NAVIGATION FIX ===== */
+mobileMenu.querySelectorAll("a").forEach(a => {
+  a.addEventListener("click", e => {
+    e.preventDefault();
+    const id = a.dataset.screen;
+    showScreen(id);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+});
 
 function showScreen(id){
   screens.forEach(s => {
